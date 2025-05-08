@@ -1,0 +1,19 @@
+name: Block PRs from Production to Testing or Development
+
+on:
+  pull_request:
+    branches:
+      - Testing
+      - Development
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block PRs from main to testing/development
+        run: |
+          echo "Source branch: ${{ github.head_ref }}"
+          if [ "${{ github.head_ref }}" = "Production" ]; then
+            echo "PRs from 'Production' to 'testing' or 'development' are not allowed."
+            exit 1
+          fi
