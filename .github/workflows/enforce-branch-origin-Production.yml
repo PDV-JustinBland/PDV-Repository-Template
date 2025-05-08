@@ -1,4 +1,4 @@
-name: Enforce PR Source Branch
+name: Enforce PR Source Branch to Production
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Fail if PR is not from testing branch
         run: |
-          if [ "${{ github.head_ref }}" != "testing" ]; then
-            echo "Only PRs from 'testing' branch are allowed."
+          if [ "${{ github.head_ref }}" != "Testing" ]; then
+            echo "Only PRs from 'Testing' branch are allowed."
             exit 1
           fi
