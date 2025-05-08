@@ -9,13 +9,13 @@ This repository follows security best practices aligned with ISO/IEC 27001 stand
 
 ## Secure Development
 - All code changes must pass automated checks (build, lint, SAST).
-- Code reviews are mandatory for all PRs.
+- Code reviews are mandatory for all PRs into `Production`.
 - Secrets must never be committed and must be stored in GitHub Secrets.
 
 ## Change Management
-- Production branches (e.g. `main`) are protected.
+- Production branches (e.g. `Production`) are protected.
 - Force-push and branch deletion are disabled.
-- Only Pull Requests from the `testing` branch are accepted into production.
+- Only Pull Requests from the `Testing` branch are accepted into production.
 
 ## Audit and Monitoring
 - GitHub audit logs are reviewed regularly.
