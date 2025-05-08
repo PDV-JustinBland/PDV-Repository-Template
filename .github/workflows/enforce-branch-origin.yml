@@ -1,0 +1,16 @@
+name: Enforce PR Source Branch
+
+on:
+  pull_request:
+    branches: [Production]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if PR is not from testing branch
+        run: |
+          if [ "${{ github.head_ref }}" != "testing" ]; then
+            echo "Only PRs from 'testing' branch are allowed."
+            exit 1
+          fi
